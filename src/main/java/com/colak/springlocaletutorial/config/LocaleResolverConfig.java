@@ -13,6 +13,7 @@ import java.util.Locale;
 @Configuration
 public class LocaleResolverConfig implements WebMvcConfigurer {
 
+    // switch to a new locale based on the value of the "language" parameter when present on the request path
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -55,7 +56,5 @@ public class LocaleResolverConfig implements WebMvcConfigurer {
         slr.setLocaleAttributeName("current.locale");
         slr.setTimeZoneAttributeName("current.timezone");
         return slr;
-
     }
-
 }
