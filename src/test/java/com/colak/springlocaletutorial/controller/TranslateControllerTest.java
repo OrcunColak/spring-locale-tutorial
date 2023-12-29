@@ -63,6 +63,7 @@ class TranslateControllerTest {
                 String.class);
         String body = response.getBody();
         assertEquals(expected, body);
+
     }
 
 }
