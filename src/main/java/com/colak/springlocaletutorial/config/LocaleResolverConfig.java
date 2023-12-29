@@ -1,11 +1,13 @@
 package com.colak.springlocaletutorial.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import java.util.Locale;
 
+@Configuration
 public class LocaleResolverConfig {
 
     @Bean
@@ -29,9 +31,10 @@ public class LocaleResolverConfig {
         // Now, as long as browser cookies aren’t cleared by the user,
         // once resolved the resolved locale data will last even between sessions. Cookies save the day!
 
-        AcceptHeaderLocaleResolver slr = new AcceptHeaderLocaleResolver ();
+        AcceptHeaderLocaleResolver slr = new AcceptHeaderLocaleResolver();
         slr.setDefaultLocale(Locale.US);
         return slr;
+
     }
 
 }
