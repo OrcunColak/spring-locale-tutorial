@@ -5,10 +5,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,6 +17,8 @@ class TranslateControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
+    // This test was valid when we were using AcceptHeaderLocaleResolver
+    /*
     @ParameterizedTest
     @CsvSource(
             {
@@ -27,7 +28,7 @@ class TranslateControllerTest {
 
             }
     )
-    void translateSpanish(String input, String expected) {
+    void translateWithHttpHeader(String input, String expected) {
         String getUrl = "/api/translate/translate/greeting";
 
         HttpHeaders headers = new HttpHeaders();
@@ -40,6 +41,29 @@ class TranslateControllerTest {
                 String.class);
         String body = response.getBody();
         assertEquals(expected, body);
+    }
+    */
+
+    @ParameterizedTest
+    @CsvSource(
+            {
+                    " ,Hello!",
+                    "?language=fr,Bonjour!",
+                    "?language=tr,Merhaba!",
+                    "?language=en,Hello!",
+
+            }
+    )
+    void translateWithPathVariable(String input, String expected) {
+        String getUrl = "/api/translate/translate/greeting" + Objects.toString(input, "");
+
+
+        ResponseEntity<String> response = testRestTemplate.getForEntity(
+                getUrl,
+                String.class);
+        String body = response.getBody();
+        assertEquals(expected, body);
+
     }
 
 }

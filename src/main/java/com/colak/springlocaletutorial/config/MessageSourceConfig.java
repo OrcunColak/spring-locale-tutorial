@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * MessageSource is used for resolving messages, with support for the parameterization and internationalization of the messages.
  * Spring contains two built-in MessageSource implementations:
@@ -27,7 +29,7 @@ public class MessageSourceConfig {
     ResourceBundleMessageSource resourceBundleMessageSource() {
         var messageSource = new ResourceBundleMessageSource();
         messageSource.setBasenames("lang/messages");
-        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
         return messageSource;
     }
 
@@ -39,7 +41,7 @@ public class MessageSourceConfig {
     public ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
         var messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("classpath:lang/messages");
-        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
         messageSource.setCacheSeconds(1);
 
         return messageSource;
