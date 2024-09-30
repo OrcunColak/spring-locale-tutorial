@@ -38,7 +38,7 @@ public class MessageSourceConfig {
      */
     @Bean
     @Primary
-    public ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
+    public static ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
         var messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("classpath:lang/messages");
         messageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
