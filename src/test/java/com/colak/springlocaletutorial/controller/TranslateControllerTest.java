@@ -118,8 +118,5 @@ class TranslateControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);  // Expect a bad request status
 
         assertEquals(expected, response.getBody());
-
-
     }
-
 }
