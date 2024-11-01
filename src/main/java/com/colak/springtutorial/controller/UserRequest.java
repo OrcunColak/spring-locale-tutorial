@@ -1,4 +1,4 @@
-package com.colak.springlocaletutorial.controller;
+package com.colak.springtutorial.controller;
 
 import jakarta.validation.constraints.Size;
 import lombok.Getter;

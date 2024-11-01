@@ -1,6 +1,6 @@
-package com.colak.springlocaletutorial.util;
+package com.colak.springtutorial.util;
 
-import com.colak.springlocaletutorial.config.MessageSourceConfig;
+import com.colak.springtutorial.config.MessageSourceConfig;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 

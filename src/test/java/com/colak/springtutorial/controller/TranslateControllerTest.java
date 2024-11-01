@@ -1,4 +1,4 @@
-package com.colak.springlocaletutorial.controller;
+package com.colak.springtutorial.controller;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

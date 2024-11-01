@@ -1,6 +1,6 @@
-package com.colak.springlocaletutorial.controller;
+package com.colak.springtutorial.controller;
 
-import com.colak.springlocaletutorial.util.MessageUtil;
+import com.colak.springtutorial.util.MessageUtil;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
